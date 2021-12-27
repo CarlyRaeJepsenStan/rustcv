@@ -1,6 +1,10 @@
 use image::{io::Reader as ImageReader, GenericImageView};
 
 mod first_derivative;
+mod utils;
+
+#[cfg(test)]
+mod tests;
 
 fn main() {
     
