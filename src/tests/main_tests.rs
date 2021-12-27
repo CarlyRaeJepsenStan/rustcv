@@ -1,8 +1,8 @@
 use image::{io::Reader as ImageReader, GenericImageView};
 
-mod ;
+use crate::utils::to_greyscale;
 
-const TEST_OUTPUT_DIR: &str = "./tests/output/";
+const TEST_OUTPUT_DIR: &str = "./src/tests/output/";
 const WINDOW_TEST_IMG: &str = "./test_images/window_only.png";
 
 #[test]
@@ -40,5 +40,6 @@ fn get_image_dimensions() {
 #[ignore]
 fn test_to_greyscale() {
     let image = ImageReader::open(WINDOW_TEST_IMG).unwrap().decode().unwrap();
-    let greyscale = to_greyscale(image);
+    let greyscale = to_greyscale(&image);
+    assert_eq!(greyscale, image.to_luma8());
 }
