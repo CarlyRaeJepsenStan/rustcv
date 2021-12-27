@@ -11,6 +11,10 @@ mod tests;
 
 fn main() {
     
+}
+
+fn create_first_derivative_nick_1() {
     let image = ImageReader::open("./test_images/window_only.png").unwrap().decode().unwrap();
-    println!("{:?}", image.dimensions());
+    let first_div = first_derivative::calc_first_derivative_image(&image);
+    first_div.save("./output/first_div_horizontal.png").unwrap();
 }
