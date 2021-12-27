@@ -1,5 +1,7 @@
 use image::{io::Reader as ImageReader, GenericImageView};
 
+mod ;
+
 const TEST_OUTPUT_DIR: &str = "./tests/output/";
 const WINDOW_TEST_IMG: &str = "./test_images/window_only.png";
 
@@ -32,4 +34,11 @@ fn get_image_dimensions() {
     let image = ImageReader::open(WINDOW_TEST_IMG).unwrap().decode().unwrap();
     //values here found by printing dimensions somwhere else...
     assert_eq!(image.dimensions(), (1516 as u32, 992 as u32));
+}
+
+#[test]
+#[ignore]
+fn test_to_greyscale() {
+    let image = ImageReader::open(WINDOW_TEST_IMG).unwrap().decode().unwrap();
+    let greyscale = to_greyscale(image);
 }
