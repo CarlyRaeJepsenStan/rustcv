@@ -17,6 +17,6 @@ fn test_save_image() {
 #[test]
 fn test_grayscale() {
     let image = ImageReader::open("./test_images/window_only.png").unwrap().decode().unwrap();
-    image.to_luma8();
-    image.save(TEST_OUTPUT_DIR.to_owned() + "greyscale_window.png").unwrap();
+    let image_grey = image.to_luma8();
+    image_grey.save(TEST_OUTPUT_DIR.to_owned() + "greyscale_window.png").unwrap();
 }
